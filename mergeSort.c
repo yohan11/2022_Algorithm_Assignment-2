@@ -17,52 +17,51 @@ int* testCase(int num){
     return randArray;
 }
 
-void merge(int* list, int left, int mid, int right){
+void merge(int* arr, int left, int mid, int right){
   int i, j, k, l;
   i = left;
   j = mid+1;
   k = left;
 
   while(i<=mid && j<=right){
-    if(list[i]<=list[j])
-      sorted[k++] = list[i++];
+    if(arr[i]<=arr[j])
+      sorted[k++] = arr[i++];
     else
-      sorted[k++] = list[j++];
+      sorted[k++] = arr[j++];
   }
 
   if(i>mid){
     for(l=j; l<=right; l++)
-      sorted[k++] = list[l];
+      sorted[k++] = arr[l];
   }
 
   else{
     for(l=i; l<=mid; l++)
-      sorted[k++] = list[l];
+      sorted[k++] = arr[l];
   }
 
   for(l=left; l<=right; l++){
-    list[l] = sorted[l];
+    arr[l] = sorted[l];
   }
 }
 
-void merge_sort(int* list, int left, int right){
+void merge_sort(int* arr, int left, int right){
   int mid;
 
   if(left<right){
     mid = (left+right)/2; 
-    merge_sort(list, left, mid);
-    merge_sort(list, mid+1, right); 
-    merge(list, left, mid, right); 
+    merge_sort(arr, left, mid);
+    merge_sort(arr, mid+1, right); 
+    merge(arr, left, mid, right); 
   }
 }
 
 int main(){
-  int i;
-  int n = MAX_SIZE;
+  int size = MAX_SIZE;
 
-  merge_sort(testCase(n), 0, n-1);
+  merge_sort(testCase(size), 0, size-1);
 
-  for(i=0; i<n; i++){
+  for(int i=0; i<size; i++){
     printf("%d ", sorted[i]);
   }
 }

@@ -9,8 +9,7 @@ int* testCase(int num){
     srand(time(NULL));
 
 	for (int i = 0; i < num; i++) { 
-        
-		random = rand()%num;
+        random = rand()%num;
 		randArray[i]=random;
 }
     return randArray;
@@ -21,7 +20,6 @@ void exchangeSort(int *arr, int size){
 
     for(i=0;i<size;++i){
 		for(j=i+1;j<size+1;j++){
-
 			if(arr[i]>arr[j]){
 				temp = arr[j];
 				arr[j] = arr[i];
@@ -36,8 +34,8 @@ void exchangeSort(int *arr, int size){
 }
 
 int main(){
-    int n=10000;
-	exchangeSort(testCase(n),n);
+    int size=10000;
+	exchangeSort(testCase(size),size);
 	return 0;
 }
 
