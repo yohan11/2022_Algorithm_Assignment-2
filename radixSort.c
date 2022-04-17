@@ -53,7 +53,7 @@ void radixSort(int* arr, int n) {
 }
 
 int main() {
-    int size=100;
+    int size=10000;
     int* data=testCase(size);
     radixSort(data, size);
     

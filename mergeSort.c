@@ -1,7 +1,7 @@
 # include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-# define MAX_SIZE 100
+# define MAX_SIZE 10000
 int sorted[MAX_SIZE]; 
 
 int* testCase(int num){

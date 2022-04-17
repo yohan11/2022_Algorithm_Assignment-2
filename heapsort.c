@@ -38,8 +38,8 @@ void heap(int *arr, int *size){
 }
 
 int main(){    
-    int size = 50;
-    int data_size=50;
+    int size = 10000;
+    int data_size=10000;
 
     int* data=testCase(size);
     

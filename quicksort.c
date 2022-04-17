@@ -16,42 +16,42 @@ int* testCase(int num) {
     return randArray;
 }
 
-void quicksort(int* arr, int start, int end) {
-    if (start >= end) {
-        return;
-    }
-    int key = start;
-    int i = start + 1;
+void quickSort(int* arr, int start, int end) {
+    int pivot = start; 
+    int i = start + 1; 
     int j = end;
     int temp;
 
+    if(start>=end){
+        return;
+    } 
+
     while (i <= j) {
-        while (i <= end && arr[i] <= arr[key]) {
-            i++;
+        while (i <= end && arr[i] <= arr[pivot]) {
+            i++; 
         }
-        while (j > start && arr[j] >= arr[key]) {
-            j--;
+        while (j > start && arr[j] >= arr[pivot]) {
+            j--; 
         }
         if (i > j) {
             temp = arr[j];
-            arr[j] = arr[key];
-            arr[key] = temp;
+            arr[j] = arr[pivot];
+            arr[pivot] = temp; 
         } else {
             temp = arr[i];
             arr[i] = arr[j];
-            arr[j] = temp;
+            arr[j] = temp; 
         }
     }
-    quicksort(arr, start, j - 1);
-    quicksort(arr, j + 1, end);
-
+    quickSort(arr, start, j - 1); 
+    quickSort(arr, j + 1, end); 
 }
 
 int main(void) {
     int size=10;
     int* data = testCase(size); 
 
-    quicksort(data, 0, size - 1);
+    quickSort(data, 0, size - 1);
 
     for (int i = 0; i < size; i++) {
         printf("%d ", data[i]);
